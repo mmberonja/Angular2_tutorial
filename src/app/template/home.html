@@ -1,0 +1,42 @@
+<h1>Hello {{title}}</h1>
+<p>Heroes:</p>
+    <ul id = "heroesId" class="heroesCl">
+        <li *ngFor="let hero of heroesClass" (click)="onSelect(hero)">
+            <!-- {{ hero.nema }} -->
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+            
+        </li>
+          
+    </ul>
+     <div *ngIf = "selectedHero">
+            <p >name: {{ selectedHero.name }} -- id: {{ selectedHero.id }} </p>
+            <label>name: </label>
+            <input [(ngModel)]="selectedHero.name"/>
+           
+     </div>
+     <div *ngIf = "selectedHero">
+         <button id="delete-button" (click)="delete(selectedHero)">Delete</button>
+     </div>
+<div>    
+<p>Heroes Class:</p>
+<span><input #newHero (blur)="addHero(newHero.value); newHero.value='' " (keyup.enter)="addHero(newHero.value); newHero.value=''"></span>
+<button id="add-button" (click)="addHero(newHero.value)">Add</button>
+
+
+    <ul id = "heroesId">
+        <li id="class-id" *ngFor="let hero of heroesClass">
+            {{ hero.name }}
+        </li>      
+    </ul>
+</div>      
+<p *ngIf = "heroesClass.length> 3">There are many heroes</p>
+<p *ngIf = "heroesClass[0].name == 'Windstorm'">Let's go!! </p>
+<p>
+  <click-me></click-me>
+</p>
+<p>
+  <loop-back></loop-back>
+</p>
+<p>
+  <key-up4></key-up4>
+</p>

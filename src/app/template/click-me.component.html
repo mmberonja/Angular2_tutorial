@@ -1,0 +1,8 @@
+<input #textbox
+    (keyup.enter)="update(textbox.value)"
+    (blur)="update(textbox.value)">
+    <p >{{value}}</p>
+<p *ngIf = "value == 'Micko'">Correct</p>
+<p *ngIf = "value != 'Micko'">InCorrect</p>
+
+    
